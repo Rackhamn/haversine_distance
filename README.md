@@ -1,5 +1,6 @@
 # Haversine Distance
 > hav(theta) = (sin^2)(theta / 2)  
+
 This program computes the haversine distance mostly accurate.  
 It can compute the distance between Stockholm, New York and Antarctica (the South Pole).  
 
