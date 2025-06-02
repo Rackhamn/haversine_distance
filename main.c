@@ -25,6 +25,14 @@
 
 #define DEGREE_STR	"°"
 
+struct dms_s {
+	double degrees, minutes, seconds;
+};
+typedef struct dms_s dms_t;
+
+#define DMS2DD(x) ((x).degrees + ((x).minutes / 60.0) + ((x).seconds / 3600.0))
+
+
 struct latlon_s {
 	union {
 		double deg[2];
@@ -73,6 +81,13 @@ location_t make_location(char * name, double lat, double lon) {
 	location_t loc = { name, { lat, lon, NS, EW } };
 
 	return loc;
+}
+
+location_t make_location_dms(char * name, dms_t dms_lat, dms_t dms_long) {
+	double lat = DMS2DD(dms_lat);
+	double lon = DMS2DD(dms_lon);
+
+	return make_location(name, lat, lon);
 }
 
 // hav(theta) == (sin^2)(theta / 2)
@@ -133,7 +148,7 @@ void print_location_dist(location_t a, location_t b) {
 int main(void) {
 	location_t locations[] = {
 		{ "Stockholm",  {  59.3327,  18.0656, NORTH_CHAR, EAST_CHAR } },
-		{ "New York",   {  40.7128, -74.0060, NORTH_CHAR, WEST_CHAR } },
+		{ "New York",   {  40.7128, -73.9352, NORTH_CHAR, WEST_CHAR } },
 		{ "Antarctica", {  82.8628,  135.000, SOUTH_CHAR, EAST_CHAR } },
 		{ "South Pole", { -90.0000,  0.00000, SOUTH_CHAR, EAST_CHAR } },
 	};
