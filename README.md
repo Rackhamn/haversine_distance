@@ -9,9 +9,15 @@ It can compute the distance between Stockholm, New York and Antarctica (the Sout
 latlon_t coord_a = { 59.3327, 18.0656 };
 latlon_t coord_b = { 40.7128, 74.006  };
 double d_km = hav(coord_a, coord_b);
+
+/* or */
+
+stockholm = { 59.3327, 18.0656 };
+new_york  = { 40.7128, 74.006  };
+d_km = hav(stockholm, new_york);
 ```
 
-## Output:
+## Example Output:
 ```r
 Stockholm   :  59.33270° N,  18.06560° E
 New York    :  40.71280° N, -74.00600° W

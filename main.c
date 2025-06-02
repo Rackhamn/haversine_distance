@@ -130,10 +130,19 @@ int main(void) {
 	};
 	int num_locations = sizeof(locations)/sizeof(locations[0]);
 
-	locations[1] = make_location("New York", 40.7128, -74.0060);
+	locations[3] = make_location("Paris", 45.7597, 4.8422);
 
+#if 1
+	for(int i = 0; i < num_locations; i++) {
+		for(int j = 0; j < num_locations; j++) {
+			if(i != j)
+				print_location_dist(locations[i], locations[j]);
+		}
+	}
+#else
 	print_location_dist(locations[0], locations[1]);
 	print_location_dist(locations[1], locations[3]);
+#endif
 
 	return 0;
 };
