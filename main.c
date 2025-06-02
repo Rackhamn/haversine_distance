@@ -4,10 +4,11 @@
 #include <math.h> // -lm
 
 // * https://en.wikipedia.org/wiki/Geographic_coordinate_system
+// * https://cs.nyu.edu/~visual/home/proj/tiger/gisfaq.html
 
 #define PI		3.1415926535897932384626434
 #define TAU		6.2831853071795864769252868
-#define EARTH_RADIUS_KM	6371.0
+#define EARTH_RADIUS_KM	6367 // 6371.0
 
 // angle (degrees) to radian
 #define A2R(a)		((a) * (PI / 180.0))
@@ -90,6 +91,9 @@ location_t make_location(char * name, double lat, double lon) {
 // 	d = R * c
 //
 double hav(latlon_t l1, latlon_t l2) {
+	// * https://cs.nyu.edu/~visual/home/proj/tiger/gisfaq.html
+	// d = 2 asin(min(1, sqrt(sin(dl/2)^2 + cos(l1)cos(l2)sin(dL/2)^2)))
+
 	double _lat = A2R(l2.lat - l1.lat);
 	double _lon = A2R(l2.lon - l1.lon);
 
