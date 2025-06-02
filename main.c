@@ -59,8 +59,10 @@ location_t make_location(char * name, double lat, double lon) {
 	char NS = (lat < 0) ? SOUTH_CHAR : NORTH_CHAR;
 	char EW = (lon < 0) ? WEST_CHAR : EAST_CHAR;
 
+	/*
 	lat = fabs(lat);
 	lon = fabs(lon);
+	*/
 
 	location_t loc = { name, { lat, lon, NS, EW } };
 
