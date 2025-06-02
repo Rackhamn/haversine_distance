@@ -31,7 +31,13 @@ struct dms_s {
 typedef struct dms_s dms_t;
 
 #define DMS2DD(x) ((x).degrees + ((x).minutes / 60.0) + ((x).seconds / 3600.0))
-
+double dms_to_dd(double degree, double minute, double second, char dir) {
+	double dd = degree + (minute / 60.0) + (second / 3600.0);
+	if(dir == SOUTH_CHAR || dir == WEST_CHAR) {
+		return -dd;
+	}
+	return dd;
+}
 
 struct latlon_s {
 	union {
