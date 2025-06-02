@@ -15,6 +15,9 @@ double d_km = hav(coord_a, coord_b);
 stockholm = { 59.3327, 18.0656 };
 new_york  = { 40.7128, 74.006  };
 d_km = hav(stockholm, new_york);
+
+/* You can also convert to american and nautical miles */
+double nautical_miles = KM2NM(d_km);
 ```
 
 ## Example Output:

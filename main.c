@@ -12,6 +12,11 @@
 // angle (degrees) to radian
 #define A2R(a)		((a) * (PI / 180.0))
 
+// kilometers to nautical miles
+#define KM2NM(x)	((x) / 1.852)
+// kilometers to American miles
+#define KM2AM(X)	((x) / 1.609)
+
 #define NORTH_CHAR	'N'
 #define SOUTH_CHAR	'S'
 #define WEST_CHAR	'W'
